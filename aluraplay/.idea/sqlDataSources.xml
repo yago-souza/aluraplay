@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DdlMappings">
+    <mapping uuid="7e7617c0-2b9c-4fb1-90a3-93771e334c07" name="banco.sqlite Mapping">
+      <data-sources db="388a3fbc-c764-4aac-aff4-0668a430b868" />
+      <scope>
+        <node kind="database" negative="1" />
+      </scope>
+    </mapping>
+  </component>
+</project>

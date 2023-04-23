@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6cc14623-0743-4bc1-ab09-933659b69208" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/edita-video.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/edita-video.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/remover-video.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/388a3fbc-c764-4aac-aff4-0668a430b868.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/388a3fbc-c764-4aac-aff4-0668a430b868.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/banco.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/banco.sqlite" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/novo-video.php" beforeDir="false" afterPath="$PROJECT_DIR$/novo-video.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/enviar-video.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/enviar-video.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 8.1" />
+  <component name="ProjectId" id="2Ojk7s1HEec7srk7QG1ImgtQVs1" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/yago/Documentos/alura/adopet&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;sqlite&quot;
+    ]
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/pages" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6cc14623-0743-4bc1-ab09-933659b69208" name="Changes" comment="" />
+      <created>1682081213850</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1682081213850</updated>
+      <workItem from="1682081214907" duration="10636000" />
+      <workItem from="1682273965589" duration="4546000" />
+    </task>
+    <task id="LOCAL-00001" summary="Cabeçalho para redirecionar o usuario após requisição (location)&#10;E adicionando foreach no html para inserir videos">
+      <created>1682089805584</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1682089805584</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Cabeçalho para redirecionar o usuario após requisição (location)" />
+    <MESSAGE value="Cabeçalho para redirecionar o usuario após requisição (location)&#10;E adicionando foreach no html para inserir videos" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cabeçalho para redirecionar o usuario após requisição (location)&#10;E adicionando foreach no html para inserir videos" />
+  </component>
+</project>
