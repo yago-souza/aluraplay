@@ -1,0 +1,84 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"6cc14623-0743-4bc1-ab09-933659b69208\" name=\"Changes\" comment=\"\">\n      <change afterPath=\"$PROJECT_DIR$/edita-video.php\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/pages/edita-video.php\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/remover-video.php\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/dataSources/388a3fbc-c764-4aac-aff4-0668a430b868.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/dataSources/388a3fbc-c764-4aac-aff4-0668a430b868.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/banco.sqlite\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/banco.sqlite\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/index.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/index.php\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/novo-video.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/novo-video.php\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/pages/enviar-video.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/pages/enviar-video.html\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"ComposerSettings\">\n    <execution />\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$/..\" />\n  </component>\n  <component name=\"PhpWorkspaceProjectConfiguration\" interpreter_name=\"PHP 8.1\" />\n  <component name=\"ProjectId\" id=\"2Ojk7s1HEec7srk7QG1ImgtQVs1\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">{\n  &quot;keyToString&quot;: {\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\n    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,\n    &quot;last_opened_file_path&quot;: &quot;/home/yago/Documentos/alura/adopet&quot;,\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\n  },\n  &quot;keyToStringList&quot;: {\n    &quot;DatabaseDriversLRU&quot;: [\n      &quot;sqlite&quot;\n    ]\n  }\n}</component>\n  <component name=\"RecentsManager\">\n    <key name=\"CopyFile.RECENT_KEYS\">\n      <recent name=\"$PROJECT_DIR$/pages\" />\n    </key>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"6cc14623-0743-4bc1-ab09-933659b69208\" name=\"Changes\" comment=\"\" />\n      <created>1682081213850</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1682081213850</updated>\n      <workItem from=\"1682081214907\" duration=\"10636000\" />\n      <workItem from=\"1682273965589\" duration=\"4546000\" />\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"Cabeçalho para redirecionar o usuario após requisição (location)&#10;E adicionando foreach no html para inserir videos\">\n      <created>1682089805584</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1682089805584</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"2\" />\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"Cabeçalho para redirecionar o usuario após requisição (location)\" />\n    <MESSAGE value=\"Cabeçalho para redirecionar o usuario após requisição (location)&#10;E adicionando foreach no html para inserir videos\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Cabeçalho para redirecionar o usuario após requisição (location)&#10;E adicionando foreach no html para inserir videos\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 3d25148a3a41705ae61b7875ad0388f791363eff)
++++ b/.idea/workspace.xml	(date 1682279533735)
+@@ -4,15 +4,8 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="6cc14623-0743-4bc1-ab09-933659b69208" name="Changes" comment="">
+-      <change afterPath="$PROJECT_DIR$/edita-video.php" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/pages/edita-video.php" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/remover-video.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/388a3fbc-c764-4aac-aff4-0668a430b868.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/388a3fbc-c764-4aac-aff4-0668a430b868.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/banco.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/banco.sqlite" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/novo-video.php" beforeDir="false" afterPath="$PROJECT_DIR$/novo-video.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/pages/enviar-video.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/enviar-video.html" afterDir="false" />
++    <list default="true" id="6cc14623-0743-4bc1-ab09-933659b69208" name="Changes" comment="Adicionada afuncionalidade de edição de video">
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -64,7 +57,7 @@
+       <option name="presentableId" value="Default" />
+       <updated>1682081213850</updated>
+       <workItem from="1682081214907" duration="10636000" />
+-      <workItem from="1682273965589" duration="4546000" />
++      <workItem from="1682273965589" duration="5566000" />
+     </task>
+     <task id="LOCAL-00001" summary="Cabeçalho para redirecionar o usuario após requisição (location)&#10;E adicionando foreach no html para inserir videos">
+       <created>1682089805584</created>
+@@ -73,7 +66,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1682089805584</updated>
+     </task>
+-    <option name="localTasksCounter" value="2" />
++    <task id="LOCAL-00002" summary="Adicionada afuncionalidade de edição de video">
++      <created>1682279084984</created>
++      <option name="number" value="00002" />
++      <option name="presentableId" value="LOCAL-00002" />
++      <option name="project" value="LOCAL" />
++      <updated>1682279084984</updated>
++    </task>
++    <option name="localTasksCounter" value="3" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -84,7 +84,19 @@
+       <map>
+         <entry key="MAIN">
+           <value>
+-            <State />
++            <State>
++              <option name="FILTERS">
++                <map>
++                  <entry key="branch">
++                    <value>
++                      <list>
++                        <option value="origin/main" />
++                      </list>
++                    </value>
++                  </entry>
++                </map>
++              </option>
++            </State>
+           </value>
+         </entry>
+       </map>
+@@ -93,6 +105,7 @@
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="Cabeçalho para redirecionar o usuario após requisição (location)" />
+     <MESSAGE value="Cabeçalho para redirecionar o usuario após requisição (location)&#10;E adicionando foreach no html para inserir videos" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Cabeçalho para redirecionar o usuario após requisição (location)&#10;E adicionando foreach no html para inserir videos" />
++    <MESSAGE value="Adicionada afuncionalidade de edição de video" />
++    <option name="LAST_COMMIT_MESSAGE" value="Adicionada afuncionalidade de edição de video" />
+   </component>
+ </project>
+\ No newline at end of file
