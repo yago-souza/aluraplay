@@ -35,7 +35,7 @@ body {
 }
 
 .logo {
-    background-image: url(../img/cabecalho/Logo.png);
+    background-image: url(/img/cabecalho/Logo.png);
     background-repeat: no-repeat;
     padding: 15px 65px;
     cursor: pointer;
@@ -43,7 +43,7 @@ body {
 
 
 .cabecalho__videos {
-    background-image: url(../img/cabecalho/video_call.png);
+    background-image: url(/img/cabecalho/video_call.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -92,7 +92,7 @@ body {
 }
 
 .pesquisar__botao {
-    background-image: url(../img/cabecalho/search.png);
+    background-image: url(/img/cabecalho/search.png);
     background-repeat: no-repeat;
     background-position: center;
     border: 1px solid rgb(211, 211, 211);
