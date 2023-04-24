@@ -10,11 +10,6 @@ if ($url === false) {
     exit();
 }
 $titulo = filter_input(INPUT_POST, 'titulo');
-/*
-var_dump($id);
-var_dump($url);
-var_dump($titulo);
-exit();*/
 
 $sql = 'UPDATE videos SET url = :url, title = :titulo WHERE id = :id;';
 $statement = $pdo->prepare($sql);

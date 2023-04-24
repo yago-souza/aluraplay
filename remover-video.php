@@ -13,5 +13,5 @@ $statement->execute();
 if ($statement->execute() === false) {
     header("Location: /index.php?sucesso=0");
 } else {
-    header("Location: /index.php?sucesso=1");
+header("Location: /index.php?sucesso=1");
 };
