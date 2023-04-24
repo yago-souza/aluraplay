@@ -11,7 +11,7 @@ $statement->bindValue(1, $id, PDO::PARAM_INT);
 $statement->execute();
 
 if ($statement->execute() === false) {
-    header("Location: /index.php?sucesso=0");
+    header("Location: /?sucesso=0");
 } else {
-header("Location: /index.php?sucesso=1");
+header("Location: /?sucesso=1");
 };
