@@ -1,2 +1,2 @@
 # aluraplay
-Projeto de plataforma de videos onde será praticado o padrão mvc e POO, PDO, e HTTPS
+Projeto de plataforma de videos onde será praticado o padrão MVC e POO, PDO, e HTTPS
