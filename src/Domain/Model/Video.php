@@ -1,6 +1,6 @@
 <?php
 
-namespace Alura\Domain\Model;
+namespace Yago\Aluraplay\Domain\Model;
 
 class Video
 {

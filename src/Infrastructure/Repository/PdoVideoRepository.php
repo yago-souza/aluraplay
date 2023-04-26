@@ -1,9 +1,9 @@
 <?php
 
-namespace Aluraplay\Infrastructure\Repository;
+namespace Yago\Aluraplay\Infrastructure\Repository;
 
-use Alura\Domain\Model\Video;
 use PDO;
+use Yago\Aluraplay\Domain\Model\Video;
 
 class PdoVideoRepository
 {
@@ -14,7 +14,7 @@ class PdoVideoRepository
         $this->connection = $connection;
     }
 
-    public function allVideos(): array
+    public function allVideos()#: array
     {
         $sqlQuery = 'SELECT * FROM videos;';
         $statement = $this->connection->query($sqlQuery);
@@ -22,13 +22,13 @@ class PdoVideoRepository
         return $this->hydrateVideosList($statement);
     }
 
-    private function hydrateVideosList(\PDOStatement $statement): array
+    private function hydrateVideosList(\PDOStatement $statement)#: array
     {
         $videoDataList = $statement->fetchAll(PDO::FETCH_ASSOC);
         $videoList = [];
 
         foreach ($videoDataList as $videoData) {
-            $videoList = new Video(
+            $videoList[] = new Video(
                 $videoData['id'],
                 $videoData['title'],
                 $videoData['url']
