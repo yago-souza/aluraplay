@@ -21,4 +21,6 @@ if (!array_key_exists('PATH_INFO', $_SERVER) || $_SERVER['PATH_INFO'] === '/') {
     }
 } elseif ($_SERVER['PATH_INFO'] === '/remover-video') {
     require_once __DIR__ . '/../remover-video.php';
+} else {
+    http_response_code(404);
 }
