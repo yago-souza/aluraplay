@@ -1,7 +1,10 @@
 <?php
 
-$dbPath = __DIR__ . '/banco.sqlite';
-$pdo = new PDO("sqlite:$dbPath");
+use Yago\Aluraplay\Infrastructure\Persistence\ConnectionCreator;
+
+require_once 'vendor/autoload.php';
+
+$pdo = ConnectionCreator::createConnection();
 
 $url = filter_input(INPUT_POST, 'url', FILTER_VALIDATE_URL);
 if ($url === false) {

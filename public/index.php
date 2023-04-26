@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+require_once __DIR__ . '/../vendor/autoload.php';
+#require_once __DIR__ . '/../src/Infrastructure/Persistence/ConnectionCreator.php';
 #var_dump($_SERVER['PATH_INFO'], $_SERVER['REQUEST_METHOD']);
 #exit();
 
@@ -17,7 +19,7 @@ if (!array_key_exists('PATH_INFO', $_SERVER) || $_SERVER['PATH_INFO'] === '/') {
     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         require_once __DIR__ . '/../formulario.php';
     } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        require_once __DIR__ . '/../editar-video.php';
+        require_once __DIR__ . '/../edita-video.php';
     }
 } elseif ($_SERVER['PATH_INFO'] === '/remover-video') {
     require_once __DIR__ . '/../remover-video.php';

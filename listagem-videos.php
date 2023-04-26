@@ -1,7 +1,10 @@
 <?php
 
-$dbPath = __DIR__ . '/banco.sqlite';
-$pdo = new PDO("sqlite:$dbPath");
+use Yago\Aluraplay\Infrastructure\Persistence\ConnectionCreator;
+
+require_once 'vendor/autoload.php';
+
+$pdo = ConnectionCreator::createConnection();
 $videoList = $pdo->query('SELECT * FROM videos;')->fetchAll(\PDO::FETCH_ASSOC);
 
 ?>
