@@ -1,6 +1,8 @@
 <?php
 
+use Yago\Aluraplay\Domain\Model\Video;
 use Yago\Aluraplay\Infrastructure\Persistence\ConnectionCreator;
+use Yago\Aluraplay\Infrastructure\Repository\PdoVideoRepository;
 
 require_once 'vendor/autoload.php';
 
@@ -13,12 +15,9 @@ if ($url === false) {
 }
 $titulo = filter_input(INPUT_POST, 'titulo');
 
-$sql = 'INSERT INTO videos (url, title) VALUES (?, ?)';
-$statement = $pdo->prepare($sql);
-$statement->bindValue(1, $url);
-$statement->bindValue(2, $titulo);
+$repository = new PdoVideoRepository($pdo);
 
-if ($statement->execute() === false) {
+if ($repository->saveVideo(new Video(null, $titulo, $url)) === false) {
     header("Location: /?sucesso=0");
 } else {
     header("Location: /?sucesso=1");

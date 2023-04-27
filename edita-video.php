@@ -1,7 +1,9 @@
 <?php
 
 
+use Yago\Aluraplay\Domain\Model\Video;
 use Yago\Aluraplay\Infrastructure\Persistence\ConnectionCreator;
+use Yago\Aluraplay\Infrastructure\Repository\PdoVideoRepository;
 
 require_once 'vendor/autoload.php';
 
@@ -25,14 +27,9 @@ if ($titulo === false || $titulo === null) {
     exit();
 }
 
-$sql = 'UPDATE videos SET url = :url, title = :titulo WHERE id = :id;';
-$statement = $pdo->prepare($sql);
-$statement->bindValue(':id', $id, PDO::PARAM_INT);
-$statement->bindValue(':url', $url);
-$statement->bindValue(':titulo', $titulo);
-$statement->execute();
+$repository = new PdoVideoRepository($pdo);
 
-if ($statement->execute() === false) {
+if ($repository->saveVideo(new Video($id, $titulo, $url)) === false) {
     header("Location: /?sucesso=0");
 } else {
     header("Location: /?sucesso=1");

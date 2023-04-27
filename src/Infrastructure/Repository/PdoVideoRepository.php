@@ -74,10 +74,10 @@ class  PdoVideoRepository
         return $statement->execute();
     }
 
-    public function remove(Video $video): bool
+    public function remove(int $id): bool
     {
         $statement = $this->connection->prepare('DElETE FROM videos WHERE id = ?;');
-        $statement->bindValue(1, $video->getId(), PDO::PARAM_INT);
+        $statement->bindValue(1, $id, PDO::PARAM_INT);
 
         return $statement->execute();
     }

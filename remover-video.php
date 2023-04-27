@@ -1,6 +1,8 @@
 <?php
 
+use Yago\Aluraplay\Domain\Model\Video;
 use Yago\Aluraplay\Infrastructure\Persistence\ConnectionCreator;
+use Yago\Aluraplay\Infrastructure\Repository\PdoVideoRepository;
 
 require_once 'vendor/autoload.php';
 
@@ -12,12 +14,9 @@ if ($id === false || $id === null) {
     exit();
 }
 
-$sql = 'DELETE FROM videos WHERE id = ?';
-$statement = $pdo->prepare($sql);
-$statement->bindValue(1, $id, PDO::PARAM_INT);
-$statement->execute();
+$repository = new PdoVideoRepository($pdo);
 
-if ($statement->execute() === false) {
+if ($repository->remove($id) === false) {
     header("Location: /index.php?sucesso=0");
 } else {
 header("Location: /index.php?sucesso=1");
