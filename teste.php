@@ -10,4 +10,9 @@ $pdo = ConnectionCreator::createConnection();
 #$teste = new Video(6, 'teste', 'teste');
 
 $teste = new PdoVideoRepository($pdo);
-var_dump($teste->allVideos());
+$repositorio = $teste->allVideos();
+
+foreach ($repositorio as $video) {
+    var_dump($video->getId());
+    #var_dump($video->getUrl);
+}
