@@ -22,6 +22,17 @@ class  VideoRepository
         return $this->hydrateVideosList($statement);
     }
 
+    public function videoPorId(int $id)
+    {
+        $statement = $this->connection->prepare('SELECT * FROM videos WHERE id = ?;');
+        $statement->bindValue(1,$id, PDO::PARAM_INT);
+        $statement->execute();
+        $returStatement = $statement->fetch(PDO::FETCH_ASSOC);
+        $video = new Video( $returStatement['id'], $returStatement['title'], $returStatement['url']);
+
+        return $video;
+    }
+
     private function hydrateVideosList(\PDOStatement $statement): array
     {
         $videoDataList = $statement->fetchAll(PDO::FETCH_ASSOC);

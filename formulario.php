@@ -1,7 +1,9 @@
 <?php
 
-$dbPath = __DIR__ . '/banco.sqlite';
-$pdo = new PDO("sqlite:$dbPath");
+use Yago\Aluraplay\Infrastructure\Persistence\ConnectionCreator;
+use Yago\Aluraplay\Infrastructure\Repository\VideoRepository;
+
+$pdo = ConnectionCreator::createConnection();
 
 $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 $video = [
@@ -10,10 +12,8 @@ $video = [
 ];
 
 if ($id !== false && $id !== null) {
-    $statement = $pdo->prepare('SELECT * FROM videos WHERE id = ?;');
-    $statement->bindValue(1,$id, PDO::PARAM_INT);
-    $statement->execute();
-    $video = $statement->fetch(\PDO::FETCH_ASSOC);
+    $statement = new VideoRepository($pdo);
+    $video = $statement->videoPorId($id);
 }
 ?>
 <?php require_once 'inicio-html.php';?>
@@ -25,7 +25,7 @@ if ($id !== false && $id !== null) {
                 <div class="formulario__campo">
                     <label class="campo__etiqueta" for="url">Link embed</label>
                     <input name="url"
-                           value="<?= $video['url'];?>"
+                           value="<?= $video->getUrl();?>"
                            class="campo__escrita"
                            required
                            placeholder="Por exemplo: https://www.youtube.com/embed/FAY1K2aUg5g"
@@ -35,7 +35,7 @@ if ($id !== false && $id !== null) {
                 <div class="formulario__campo">
                     <label class="campo__etiqueta" for="titulo">Titulo do vídeo</label>
                     <input name="titulo"
-                           value="<?= $video['title']; ?>"
+                           value="<?= $video->getTitulo(); ?>"
                            class="campo__escrita"
                            required
                            placeholder="Neste campo, dê o nome do vídeo"

@@ -9,10 +9,7 @@ require_once 'vendor/autoload.php';
 $pdo = ConnectionCreator::createConnection();
 #$teste = new Video(6, 'teste', 'teste');
 
-$teste = new VideoRepository($pdo);
-$repositorio = $teste->allVideos();
+$statement = new VideoRepository($pdo);
+$video = $statement->videoPorId(2);
 
-foreach ($repositorio as $video) {
-    var_dump($video->getId());
-    #var_dump($video->getUrl);
-}
+var_dump($video);
