@@ -5,7 +5,7 @@ namespace Yago\Aluraplay\Infrastructure\Repository;
 use PDO;
 use Yago\Aluraplay\Domain\Model\Video;
 
-class  PdoVideoRepository
+class  VideoRepository
 {
     private PDO $connection;
 

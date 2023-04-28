@@ -2,13 +2,18 @@
 
 declare(strict_types=1);
 
+use Yago\Aluraplay\Controller\VideoListController;
+use Yago\Aluraplay\Infrastructure\Repository\VideoRepository;
+
 require_once __DIR__ . '/../vendor/autoload.php';
-#require_once __DIR__ . '/../src/Infrastructure/Persistence/ConnectionCreator.php';
-#var_dump($_SERVER['PATH_INFO'], $_SERVER['REQUEST_METHOD']);
-#exit();
+
+$dbPath = __DIR__ . '/../banco.sqlite';
+$pdo = new PDO("sqlite:$dbPath");
+$videoRepository = new VideoRepository($pdo);
 
 if (!array_key_exists('PATH_INFO', $_SERVER) || $_SERVER['PATH_INFO'] === '/') {
-    require_once __DIR__ . '/../listagem-videos.php';
+   $controller = new VideoListController($videoRepository);
+   $controller->processaRequisicao();
 } elseif ($_SERVER['PATH_INFO'] === '/novo-video') {
     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         require_once __DIR__ . '/../formulario.php';

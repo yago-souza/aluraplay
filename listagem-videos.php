@@ -1,14 +1,4 @@
-<?php
 
-use Yago\Aluraplay\Infrastructure\Persistence\ConnectionCreator;
-use Yago\Aluraplay\Infrastructure\Repository\PdoVideoRepository;
-
-require_once 'vendor/autoload.php';
-
-$pdo = ConnectionCreator::createConnection();
-$repository = new PdoVideoRepository($pdo);
-$videoList = $repository->allVideos();
-?>
 <?php require_once 'inicio-html.php';?>
     <ul class="videos__container">
         <?php foreach ($videoList as $video): ?>

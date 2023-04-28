@@ -2,7 +2,7 @@
 
 use Yago\Aluraplay\Domain\Model\Video;
 use Yago\Aluraplay\Infrastructure\Persistence\ConnectionCreator;
-use Yago\Aluraplay\Infrastructure\Repository\PdoVideoRepository;
+use Yago\Aluraplay\Infrastructure\Repository\VideoRepository;
 
 require_once 'vendor/autoload.php';
 
@@ -14,7 +14,7 @@ if ($id === false || $id === null) {
     exit();
 }
 
-$repository = new PdoVideoRepository($pdo);
+$repository = new VideoRepository($pdo);
 
 if ($repository->remove($id) === false) {
     header("Location: /index.php?sucesso=0");
