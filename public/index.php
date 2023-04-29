@@ -2,7 +2,10 @@
 
 declare(strict_types=1);
 
+use Yago\Aluraplay\Controller\EditaVideoController;
 use Yago\Aluraplay\Controller\FormController;
+use Yago\Aluraplay\Controller\NovoVideoController;
+use Yago\Aluraplay\Controller\RemoveVideoController;
 use Yago\Aluraplay\Controller\VideoListController;
 use Yago\Aluraplay\Infrastructure\Repository\VideoRepository;
 
@@ -21,20 +24,21 @@ if (!array_key_exists('PATH_INFO', $_SERVER) || $_SERVER['PATH_INFO'] === '/') {
    $controller->processaRequisicao();
 } elseif ($_SERVER['PATH_INFO'] === '/novo-video') {
     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-        #require_once __DIR__ . '/../formulario.php';
         $formController->processaRequisicao();
     } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        require_once __DIR__ . '/../novo-video.php';
+        $novoVideo = new NovoVideoController($videoRepository);
+        $novoVideo->processaRequisicao();
     }
 } elseif ($_SERVER['PATH_INFO'] === '/editar-video') {
     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-        #require_once __DIR__ . '/../formulario.php';
         $formController->processaRequisicao();
     } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        require_once __DIR__ . '/../edita-video.php';
+        $editaVideo = new EditaVideoController($videoRepository);
+        $editaVideo->processaRequisicao();
     }
 } elseif ($_SERVER['PATH_INFO'] === '/remover-video') {
-    require_once __DIR__ . '/../remover-video.php';
+    $removeVideo = new RemoveVideoController($videoRepository);
+    $removeVideo->processaRequisicao();
 } else {
     http_response_code(404);
 }
