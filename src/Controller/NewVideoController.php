@@ -5,7 +5,7 @@ namespace Yago\Aluraplay\Controller;
 use Yago\Aluraplay\Domain\Model\Video;
 use Yago\Aluraplay\Infrastructure\Repository\VideoRepository;
 
-class NovoVideoController
+class NewVideoController implements Controller
 {
     public function __construct(private VideoRepository $videoRepository)
     {

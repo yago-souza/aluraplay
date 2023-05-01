@@ -27,8 +27,9 @@ class  VideoRepository
         $statement = $this->connection->prepare('SELECT * FROM videos WHERE id = ?;');
         $statement->bindValue(1,$id, PDO::PARAM_INT);
         $statement->execute();
-        $returStatement = $statement->fetch(PDO::FETCH_ASSOC);
-        $video = new Video( $returStatement['id'], $returStatement['title'], $returStatement['url']);
+
+        $returnStatement = $statement->fetch(PDO::FETCH_ASSOC);
+        $video = new Video( $returnStatement['id'], $returnStatement['title'], $returnStatement['url']);
 
         return $video;
     }

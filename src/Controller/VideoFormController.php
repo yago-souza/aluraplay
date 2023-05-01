@@ -5,17 +5,15 @@ namespace Yago\Aluraplay\Controller;
 use Yago\Aluraplay\Domain\Model\Video;
 use Yago\Aluraplay\Infrastructure\Repository\VideoRepository;
 
-class FormController
+class VideoFormController implements Controller
 {
     public function __construct(private VideoRepository $videoRepository)
     {
     }
-
     public function processaRequisicao(): void
     {
         $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
-        $video = new Video(null, '', '');
-
+        $video = null;#new Video(null, '', '');
         if ($id !== false && $id !== null) {
             $video = $this->videoRepository->videoPorId($id);
         }
@@ -29,7 +27,7 @@ class FormController
                 <div class="formulario__campo">
                     <label class="campo__etiqueta" for="url">Link embed</label>
                     <input name="url"
-                           value="<?= $video->getUrl();?>"
+                           value="<?= $video?->getUrl();?>"
                            class="campo__escrita"
                            required
                            placeholder="Por exemplo: https://www.youtube.com/embed/FAY1K2aUg5g"
@@ -39,7 +37,7 @@ class FormController
                 <div class="formulario__campo">
                     <label class="campo__etiqueta" for="titulo">Titulo do vídeo</label>
                     <input name="titulo"
-                           value="<?= $video->getTitulo(); ?>"
+                           value="<?= $video?->getTitulo(); ?>"
                            class="campo__escrita"
                            required
                            placeholder="Neste campo, dê o nome do vídeo"

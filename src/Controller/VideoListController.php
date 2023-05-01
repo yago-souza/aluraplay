@@ -5,7 +5,7 @@ namespace Yago\Aluraplay\Controller;
 use PDO;
 use Yago\Aluraplay\Infrastructure\Repository\VideoRepository;
 
-class VideoListController
+class VideoListController implements Controller
 {
     public function __construct(private VideoRepository $videoRepository)
     {

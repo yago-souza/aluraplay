@@ -4,7 +4,7 @@ namespace Yago\Aluraplay\Controller;
 
 use Yago\Aluraplay\Infrastructure\Repository\VideoRepository;
 
-class RemoveVideoController
+class DeleteVideoController implements Controller
 {
     public function __construct(private VideoRepository $videoRepository)
     {
@@ -19,9 +19,9 @@ class RemoveVideoController
         }
 
         if ($this->videoRepository->remove($id) === false) {
-            header("Location: /index.php?sucesso=0");
+            header("Location: /?sucesso=0");
         } else {
-            header("Location: /index.php?sucesso=1");
+            header("Location: /?sucesso=1");
         };
     }
 }
