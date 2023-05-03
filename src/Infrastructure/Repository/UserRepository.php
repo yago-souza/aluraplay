@@ -3,9 +3,9 @@
 namespace Yago\Aluraplay\Infrastructure\Repository;
 
 use PDO;
-use Yago\Aluraplay\Domain\Model\Video;
+use Yago\Aluraplay\Domain\Model\User;
 
-class UserRepository implements \Alura\Domain\Repository\UserRepository
+class UserRepository implements \Yago\Aluraplay\Domain\Repository\UserRepository
 {
     public function __construct(private PDO $connection)
     {
@@ -19,14 +19,14 @@ class UserRepository implements \Alura\Domain\Repository\UserRepository
         return $this->hydrateUsersList($statement);
     }
 
-    public function userForId(Video $user): Video
+    public function userForId(User $user): User
     {
         $statement = $this->connection->prepare('SELECT * FROM users WHERE id = ?;');
         $statement->bindValue(1,$user->getId(), PDO::PARAM_INT);
         $statement->execute();
 
         $returnStatement = $statement->fetch(PDO::FETCH_ASSOC);
-        $userConsulted = new Video( $returnStatement['id'], $returnStatement['email'], $returnStatement['password']);
+        $userConsulted = new User( $returnStatement['id'], $returnStatement['email'], $returnStatement['password']);
 
         return $userConsulted;
     }
@@ -37,7 +37,7 @@ class UserRepository implements \Alura\Domain\Repository\UserRepository
         $userList = [];
 
         foreach ($userDataList as $userData) {
-            $userList[] = new Video(
+            $userList[] = new User(
                 $userData['id'],
                 $userData['email'],
                 $userData['password']
@@ -46,7 +46,7 @@ class UserRepository implements \Alura\Domain\Repository\UserRepository
         return $userList;
     }
 
-    public function saveUser(Video $user): bool
+    public function saveUser(User $user): bool
     {
         if ($user->getId() === null) {
             return $this->insert($user);
@@ -55,7 +55,7 @@ class UserRepository implements \Alura\Domain\Repository\UserRepository
         return $this->update($user);
     }
 
-    private function insert(Video $user): bool
+    private function insert(User $user): bool
     {
         $hash = password_hash($user->getPassword(), PASSWORD_ARGON2ID);
         $insertQuery = 'INSERT INTO users (email, password) VALUES (:email, :password);';
@@ -73,18 +73,19 @@ class UserRepository implements \Alura\Domain\Repository\UserRepository
         return $success;
     }
 
-    private function update(Video $user)
+    private function update(User $user)
     {
+        $hash = password_hash($user->getPassword(), PASSWORD_ARGON2ID);
         $updateQuery = 'UPDATE users SET email = :email, password = :password WHERE id = :id';
         $statement = $this->connection->prepare($updateQuery);
         $statement->bindValue(':id', $user->getId(), PDO::PARAM_INT);
         $statement->bindValue(':email', $user->getEmail());
-        $statement->bindValue(':password', $user->getPassword());
+        $statement->bindValue(':password', $hash);
 
         return $statement->execute();
     }
 
-    public function removeUser(Video $user): bool
+    public function removeUser(User $user): bool
     {
         $statement = $this->connection->prepare('DElETE FROM users WHERE id = ?;');
         $statement->bindValue(1, $user->getId(), PDO::PARAM_INT);

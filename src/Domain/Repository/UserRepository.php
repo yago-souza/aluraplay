@@ -1,13 +1,13 @@
 <?php
 
-namespace Alura\Domain\Repository;
+namespace Yago\Aluraplay\Domain\Repository;
 
-use Yago\Aluraplay\Domain\Model\Video;
+use Yago\Aluraplay\Domain\Model\User;
 
 interface UserRepository
 {
     public function allUsers(): array;
-    public function userForId(Video $user): Video;
-    public function saveUser(Video $user): bool;
-    public function removeUser(Video $user): bool;
+    public function userForId(User $user): User;
+    public function saveUser(User $user): bool;
+    public function removeUser(User $user): bool;
 }
