@@ -15,7 +15,7 @@ class VideoFormController implements Controller
         $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
         $video = null;#new Video(null, '', '');
         if ($id !== false && $id !== null) {
-            $video = $this->videoRepository->videoPorId($id);
+            $video = $this->videoRepository->videoForId($id);
         }
         require_once __DIR__ . '/../../views/video-form.php';
     }

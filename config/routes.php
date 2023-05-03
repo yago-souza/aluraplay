@@ -7,4 +7,5 @@ return [
     'GET|/editar-video' => \Yago\Aluraplay\Controller\VideoFormController::class,
     'POST|/editar-video' => \Yago\Aluraplay\Controller\EditVideoController::class,
     'GET|/remover-video' => \Yago\Aluraplay\Controller\DeleteVideoController::class,
+    'GET|/login' => \Yago\Aluraplay\Controller\LoginFormController::class,
 ];

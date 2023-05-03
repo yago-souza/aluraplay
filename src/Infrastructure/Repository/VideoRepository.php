@@ -22,7 +22,7 @@ class  VideoRepository
         return $this->hydrateVideosList($statement);
     }
 
-    public function videoPorId(int $id)
+    public function videoForId(int $id)
     {
         $statement = $this->connection->prepare('SELECT * FROM videos WHERE id = ?;');
         $statement->bindValue(1,$id, PDO::PARAM_INT);
