@@ -19,16 +19,16 @@ class UserRepository implements \Yago\Aluraplay\Domain\Repository\UserRepository
         return $this->hydrateUsersList($statement);
     }
 
-    public function userForId(User $user): User
+    public function userForEmail(string $email): User
     {
-        $statement = $this->connection->prepare('SELECT * FROM users WHERE id = ?;');
-        $statement->bindValue(1,$user->getId(), PDO::PARAM_INT);
+        $statement = $this->connection->prepare('SELECT * FROM users WHERE email = ?;');
+        $statement->bindValue(1,$email);
         $statement->execute();
 
         $returnStatement = $statement->fetch(PDO::FETCH_ASSOC);
-        $userConsulted = new User( $returnStatement['id'], $returnStatement['email'], $returnStatement['password']);
+        $user = new User( $returnStatement['id'], $returnStatement['email'], $returnStatement['password']);
 
-        return $userConsulted;
+        return $user;
     }
 
     private function hydrateUsersList(\PDOStatement $statement): array

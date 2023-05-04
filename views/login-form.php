@@ -1,8 +1,6 @@
 <?php require_once __DIR__ . '/inicio-html.php'; ?>
-
     <main class="container">
-
-        <form class="container__formulario">
+        <form class="container__formulario" method="post">
             <h2 class="formulario__titulo">Efetue login</h2>
                 <div class="formulario__campo">
                     <label class="campo__etiqueta" for="usuario">E-mail</label>
