@@ -9,4 +9,5 @@ return [
     'GET|/remover-video' => \Yago\Aluraplay\Controller\DeleteVideoController::class,
     'GET|/login' => \Yago\Aluraplay\Controller\LoginFormController::class,
     'POST|/login' => \Yago\Aluraplay\Controller\LoginController::class,
+    'GET|/logout' => \Yago\Aluraplay\Controller\LogoutController::class,
 ];
