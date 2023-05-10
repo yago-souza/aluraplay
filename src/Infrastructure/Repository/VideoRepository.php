@@ -29,7 +29,7 @@ class  VideoRepository
         $statement->execute();
 
         $returnStatement = $statement->fetch(PDO::FETCH_ASSOC);
-        $video = new Video( $returnStatement['id'], $returnStatement['title'], $returnStatement['url']);
+        $video = new Video( $returnStatement['id'], $returnStatement['title'], $returnStatement['url'], $returnStatement['image_path']);
 
         return $video;
     }
@@ -43,7 +43,8 @@ class  VideoRepository
             $videoList[] = new Video(
                 $videoData['id'],
                 $videoData['title'],
-                $videoData['url']
+                $videoData['url'],
+                $videoData['image_path']
             );
         }
         return $videoList;
@@ -60,12 +61,13 @@ class  VideoRepository
 
     private function insert(Video $video): bool
     {
-        $insertQuery = 'INSERT INTO videos (title, url) VALUES (:titulo, :url);';
+        $insertQuery = 'INSERT INTO videos (title, url, image_path) VALUES (:titulo, :url, :image_path);';
         $statement = $this->connection->prepare($insertQuery);
 
         $success = $statement->execute([
             ':titulo' => $video->getTitulo(),
             ':url' => $video->getUrl(),
+            ':image_path' => $video->getFilePath(),
         ]);
 
         if ($success) {
@@ -77,11 +79,24 @@ class  VideoRepository
 
     private function update(Video $video)
     {
-        $updateQuery = 'UPDATE videos SET title = :titulo, url = :url WHERE id = :id';
+        $updateImageSql = '';
+        if ($video->getFilePath() !== null) {
+            $updateImageSql = ', immage_path = :image_path';
+        }
+        $updateQuery = "UPDATE videos SET
+                            url = :url,
+                            title = :titulo
+                            $updateImageSql
+                        WHERE id = :id";
         $statement = $this->connection->prepare($updateQuery);
         $statement->bindValue(':id', $video->getId(), PDO::PARAM_INT);
-        $statement->bindValue(':titulo', $video->getTitulo());
         $statement->bindValue(':url', $video->getUrl());
+        $statement->bindValue(':titulo', $video->getTitulo());
+
+        if ($video->getFilePath() !== null) {
+            $statement->bindValue(':image_path', $video->getFilePath());
+        }
+
 
         return $statement->execute();
     }

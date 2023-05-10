@@ -46,3 +46,6 @@
     border-radius: 24px;
     background-color: var(--azul-escuro);
 }
+.tumb {
+    max-width: 100%;
+}

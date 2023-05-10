@@ -18,11 +18,27 @@ class NewVideoController implements Controller
             exit();
         }
         $titulo = filter_input(INPUT_POST, 'titulo');
+        if($titulo == false) {
+            header('Location: /?sucesso=0');
+            return;
+        }
 
-        if ($this->videoRepository->saveVideo(new Video(null, $titulo, $url)) === false) {
+        $video = new Video(null, $titulo, $url, null);
+
+        if ($_FILES['image']['error'] === UPLOAD_ERR_OK/*algum video fo enviado*/) {
+            move_uploaded_file(
+                $_FILES['image']['tmp_name'],
+                __DIR__ . '/../../public/img/uploads/' . $_FILES['image']['name']
+            );
+            $video->setFilePath($_FILES['image']['name']);
+        }
+
+        if ($this->videoRepository->saveVideo($video) === false) {
             header("Location: /?sucesso=0");
         } else {
             header("Location: /?sucesso=1");
-        };
+        }
+
+
     }
 }
