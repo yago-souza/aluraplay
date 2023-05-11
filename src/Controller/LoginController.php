@@ -15,13 +15,24 @@ class LoginController implements Controller
     {
         $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
         $password = filter_input(INPUT_POST, 'password');
-        $statement = $this->repository->userForEmail($email);
-        if ($statement === null) {
+        $user = $this->repository->userForEmail($email);
+        if ($user === null) {
             header('Location: /login?sucesso=0');
             exit();
         }
-        $correctPassword = password_verify($password, $statement->getPassword());
+        $correctPassword = password_verify($password, $user->getPassword());
         if($correctPassword){
+            /* O if a baixo verifica se a senha está com o hash no modelo
+                PASSWORD_ARGON2ID que é o mais atualizado e melhor na
+             data de criação desse projeto (10/05/2023)
+            Se não estiver com esse hash
+            ele adiciona esse hash a senha
+            */
+
+            if (password_needs_rehash($user->getPassword(), PASSWORD_ARGON2ID)) {
+                $user->setPassword(password_hash($password, PASSWORD_ARGON2ID));
+                $this->repository->saveUser($user);
+            }
             $_SESSION['logado'] = true;
             header('Location: /');
         } else {

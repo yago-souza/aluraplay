@@ -81,7 +81,7 @@ class  VideoRepository
     {
         $updateImageSql = '';
         if ($video->getFilePath() !== null) {
-            $updateImageSql = ', immage_path = :image_path';
+            $updateImageSql = ', image_path = :image_path';
         }
         $updateQuery = "UPDATE videos SET
                             url = :url,
@@ -105,6 +105,15 @@ class  VideoRepository
     {
         $statement = $this->connection->prepare('DElETE FROM videos WHERE id = ?;');
         $statement->bindValue(1, $id, PDO::PARAM_INT);
+
+        return $statement->execute();
+    }
+
+    public function removeThumb(Video $video): bool
+    {
+        $sql = 'UPDATE VIDEOS SET image_path = NULL WHERE id = ?;';
+        $statement = $this->connection->prepare($sql);
+        $statement->bindValue(1,$video->getId());
 
         return $statement->execute();
     }

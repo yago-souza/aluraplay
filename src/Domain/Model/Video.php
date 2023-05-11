@@ -50,7 +50,7 @@ class Video
         $this->url = $newUrl;
     }
 
-    public function setFilePath(string $filePath): void
+    public function setFilePath(?string $filePath): void
     {
         $this->filePath = $filePath;
     }

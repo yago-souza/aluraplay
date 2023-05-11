@@ -9,7 +9,7 @@ $pdo = ConnectionCreator::createConnection();
 $email = $argv[1];
 $password = $argv[2];
 
-$hash = password_hash($password, PASSWORD_ARGON2ID);
+$hash = password_hash($password, PASSWORD_BCRYPT);
 
 $sql = 'INSERT INTO users (email, password) VALUES (:email, :password);';
 $statement = $pdo->prepare($sql);

@@ -10,4 +10,5 @@ return [
     'GET|/login' => \Yago\Aluraplay\Controller\LoginFormController::class,
     'POST|/login' => \Yago\Aluraplay\Controller\LoginController::class,
     'GET|/logout' => \Yago\Aluraplay\Controller\LogoutController::class,
+    'GET|/remover-thumb' => \Yago\Aluraplay\Controller\DeleteThumb::class,
 ];
