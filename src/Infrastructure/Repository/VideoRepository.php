@@ -17,12 +17,17 @@ class  VideoRepository
     public function allVideos(): array
     {
         $sqlQuery = 'SELECT * FROM videos;';
-        $statement = $this->connection->query($sqlQuery);
+        $videoList = $this->connection
+            ->query($sqlQuery)
+            ->fetchAll(PDO::FETCH_ASSOC);
 
-        return $this->hydrateVideosList($statement);
+        return var_dump(array_map(
+            $this->hydrateVideosList(...),
+            $videoList
+        ));
     }
 
-    public function videoForId(int $id)
+    public function find(int $id)
     {
         $statement = $this->connection->prepare('SELECT * FROM videos WHERE id = ?;');
         $statement->bindValue(1,$id, PDO::PARAM_INT);
@@ -34,20 +39,15 @@ class  VideoRepository
         return $video;
     }
 
-    private function hydrateVideosList(\PDOStatement $statement): array
+    private function hydrateVideosList(array $videoData): Video
     {
-        $videoDataList = $statement->fetchAll(PDO::FETCH_ASSOC);
-        $videoList = [];
-
-        foreach ($videoDataList as $videoData) {
-            $videoList[] = new Video(
+        $video = new Video(
                 $videoData['id'],
                 $videoData['title'],
                 $videoData['url'],
                 $videoData['image_path']
             );
-        }
-        return $videoList;
+        return $video;
     }
 
     public function saveVideo(Video $video): bool

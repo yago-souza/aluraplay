@@ -17,7 +17,7 @@ class DeleteThumb implements Controller
             header('Location: /?sucesso=0');
             exit();
         }
-        $video = $this->videoRepository->videoForId($id);
+        $video = $this->videoRepository->find($id);
         if ($this->videoRepository->removeThumb($video) === false) {
             header("Location: /?sucesso=0");
         } else {
