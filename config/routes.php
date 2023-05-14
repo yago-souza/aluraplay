@@ -12,4 +12,5 @@ return [
     'GET|/logout' => \Yago\Aluraplay\Controller\LogoutController::class,
     'GET|/remover-thumb' => \Yago\Aluraplay\Controller\DeleteThumb::class,
     'GET|/videos-json' => \Yago\Aluraplay\Controller\JsonVideoListController::class,
+    'POST|/videos' => \Yago\Aluraplay\Controller\NewJsonVideoController::class,
 ];

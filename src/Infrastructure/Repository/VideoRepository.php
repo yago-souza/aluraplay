@@ -21,10 +21,10 @@ class  VideoRepository
             ->query($sqlQuery)
             ->fetchAll(PDO::FETCH_ASSOC);
 
-        return var_dump(array_map(
+        return array_map(
             $this->hydrateVideosList(...),
             $videoList
-        ));
+        );
     }
 
     public function find(int $id)

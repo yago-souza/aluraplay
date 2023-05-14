@@ -13,7 +13,17 @@ class JsonVideoListController implements Controller
     public function processaRequisicao(): void
     {
         $videoList = $this->videoRepository->allVideos();
-        #var_dump($videoList);
-        echo json_encode($videoList);
+        $videoListJson = [];
+        foreach ($videoList as $video) {
+            $arrayVideo = [
+                "id" => $video->getId(),
+                "titulo" => $video->getTitulo(),
+                "url" => $video->getUrl(),
+                "filePath" => '/img/uploads/' . $video->getFilePath(),
+            ];
+            $videoListJson[] = json_encode($arrayVideo);
+            echo json_encode($arrayVideo) . "<br>";
+        }
+        #var_dump($videoListJson);
     }
 }
