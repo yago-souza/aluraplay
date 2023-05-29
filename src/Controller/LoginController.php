@@ -17,7 +17,8 @@ class LoginController implements Controller
         $password = filter_input(INPUT_POST, 'password');
         $user = $this->repository->userForEmail($email);
         if ($user === null) {
-            header('Location: /login?sucesso=0');
+            $_SESSION['error_message'] = "Usuário ou senha inválidos";
+            header('Location: /login');
             exit();
         }
         $correctPassword = password_verify($password, $user->getPassword());
@@ -36,7 +37,9 @@ class LoginController implements Controller
             $_SESSION['logado'] = true;
             header('Location: /');
         } else {
-            header('Location: /login?sucesso=0');
+            // enviar uma mensagem para /login
+            $_SESSION['error_message'] = "Usuário ou senha inválidos";
+            header('Location: /login');
         }
     }
 }

@@ -5,7 +5,7 @@ namespace Yago\Aluraplay\Controller;
 use Yago\Aluraplay\Domain\Model\Video;
 use Yago\Aluraplay\Infrastructure\Repository\VideoRepository;
 
-class VideoFormController implements Controller
+class VideoFormController extends ControllerWithHtml implements Controller
 {
     public function __construct(private VideoRepository $videoRepository)
     {
@@ -17,6 +17,9 @@ class VideoFormController implements Controller
             $video = $this->videoRepository->find($id);
         }
 
-        require_once __DIR__ . '/../../views/video-form.php';
+        echo $this->renderTemplate(
+            'video-form',
+                        ['video' => $video]
+        );
     }
 }

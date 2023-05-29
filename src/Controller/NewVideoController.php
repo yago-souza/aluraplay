@@ -14,12 +14,14 @@ class NewVideoController implements Controller
     {
         $url = filter_input(INPUT_POST, 'url', FILTER_VALIDATE_URL);
         if ($url === false) {
-            header("Location: /?sucesso=0");
+            $_SESSION['error_message'] = "Não foi possivel inserir vídeo. Url inválida";
+            header("Location: /novo-video");
             exit();
         }
         $titulo = filter_input(INPUT_POST, 'titulo');
         if($titulo == false) {
-            header('Location: /?sucesso=0');
+            $_SESSION['error_message'] = "Titulo não informado";
+            header('Location: /novo-video');
             return;
         }
 
@@ -43,7 +45,8 @@ class NewVideoController implements Controller
         }
 
         if ($this->videoRepository->saveVideo($video) === false) {
-            header("Location: /?sucesso=0");
+            $_SESSION['error_message'] = "Não foi possivel inserir novo vídeo";
+            header("Location: /");
         } else {
             header("Location: /?sucesso=1");
         }
