@@ -3,10 +3,12 @@
 namespace Yago\Aluraplay\Controller;
 
 
+use Yago\Aluraplay\Helper\FlashMessageTrait;
 use Yago\Aluraplay\Infrastructure\Repository\UserRepository;
 
 class LoginController implements Controller
 {
+    use FlashMessageTrait;
     public function __construct(private UserRepository $repository)
     {
     }
@@ -17,7 +19,7 @@ class LoginController implements Controller
         $password = filter_input(INPUT_POST, 'password');
         $user = $this->repository->userForEmail($email);
         if ($user === null) {
-            $_SESSION['error_message'] = "Usuário ou senha inválidos";
+            $this->addErrorMesage("Usuário ou senha inválidos");
             header('Location: /login');
             exit();
         }

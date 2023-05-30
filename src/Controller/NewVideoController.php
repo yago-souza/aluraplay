@@ -3,10 +3,12 @@
 namespace Yago\Aluraplay\Controller;
 
 use Yago\Aluraplay\Domain\Model\Video;
+use Yago\Aluraplay\Helper\FlashMessageTrait;
 use Yago\Aluraplay\Infrastructure\Repository\VideoRepository;
 
 class NewVideoController implements Controller
 {
+    use FlashMessageTrait;
     public function __construct(private VideoRepository $videoRepository)
     {
     }
@@ -14,13 +16,13 @@ class NewVideoController implements Controller
     {
         $url = filter_input(INPUT_POST, 'url', FILTER_VALIDATE_URL);
         if ($url === false) {
-            $_SESSION['error_message'] = "Não foi possivel inserir vídeo. Url inválida";
+            $this->addErrorMesage("Não foi possivel inserir vídeo. Url inválida");
             header("Location: /novo-video");
             exit();
         }
         $titulo = filter_input(INPUT_POST, 'titulo');
         if($titulo == false) {
-            $_SESSION['error_message'] = "Titulo não informado";
+            $this->addErrorMesage("Titulo não informado");
             header('Location: /novo-video');
             return;
         }
@@ -45,12 +47,10 @@ class NewVideoController implements Controller
         }
 
         if ($this->videoRepository->saveVideo($video) === false) {
-            $_SESSION['error_message'] = "Não foi possivel inserir novo vídeo";
+            $this->addErrorMesage("Não foi possivel inserir novo vídeo");
             header("Location: /");
         } else {
             header("Location: /?sucesso=1");
         }
-
-
     }
 }

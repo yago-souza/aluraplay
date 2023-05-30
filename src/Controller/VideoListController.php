@@ -3,10 +3,12 @@
 namespace Yago\Aluraplay\Controller;
 
 use PDO;
+use Yago\Aluraplay\Helper\HtmlRendererTrait;
 use Yago\Aluraplay\Infrastructure\Repository\VideoRepository;
 
-class VideoListController extends ControllerWithHtml implements Controller
+class VideoListController implements Controller
 {
+    use HtmlRendererTrait;
     public function __construct(private VideoRepository $videoRepository)
     {
     }
