@@ -3,6 +3,9 @@
 namespace Yago\Aluraplay\Controller;
 
 
+use Nyholm\Psr7\Response;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
 use Yago\Aluraplay\Helper\FlashMessageTrait;
 use Yago\Aluraplay\Infrastructure\Repository\UserRepository;
 
@@ -13,15 +16,17 @@ class LoginController implements Controller
     {
     }
 
-    public function processaRequisicao(): void
+    public function processaRequisicao(ServerRequestInterface $request): ResponseInterface
     {
-        $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
-        $password = filter_input(INPUT_POST, 'password');
+        $parsedBody = $request->getParsedBody();
+        $email = filter_var($parsedBody['email'], FILTER_VALIDATE_EMAIL);
+        $password = filter_var($parsedBody['password']);
         $user = $this->repository->userForEmail($email);
         if ($user === null) {
             $this->addErrorMesage("Usuário ou senha inválidos");
-            header('Location: /login');
-            exit();
+            return new Response(302, [
+                'Location' => '/login'
+            ]);
         }
         $correctPassword = password_verify($password, $user->getPassword());
         if($correctPassword){
@@ -37,11 +42,15 @@ class LoginController implements Controller
                 $this->repository->saveUser($user);
             }
             $_SESSION['logado'] = true;
-            header('Location: /');
+            return new Response(302, [
+                'Location' => '/login'
+            ]);
         } else {
             // enviar uma mensagem para /login
-            $_SESSION['error_message'] = "Usuário ou senha inválidos";
-            header('Location: /login');
+            $this->addErrorMesage('Usuário ou senha inválidos');
+            return new Response(302, [
+                'Location' => '/login'
+            ]);
         }
     }
 }

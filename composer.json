@@ -3,5 +3,9 @@
         "psr-4": {
             "Yago\\Aluraplay\\": "src/"
         }
+    },
+    "require": {
+        "psr/http-message": "^2.0",
+        "nyholm/psr7": "^1.8"
     }
 }

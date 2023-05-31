@@ -2,6 +2,10 @@
 
 namespace Yago\Aluraplay\Controller;
 
+use http\Client\Response;
+use http\Message\Body;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
 use Yago\Aluraplay\Infrastructure\Repository\VideoRepository;
 
 class JsonVideoListController implements Controller
@@ -10,7 +14,7 @@ class JsonVideoListController implements Controller
     {
     }
 
-    public function processaRequisicao(): void
+    public function processaRequisicao(ServerRequestInterface $request): ResponseInterface
     {
         $videoList = $this->videoRepository->allVideos();
         $videoListJson = [];
@@ -24,6 +28,6 @@ class JsonVideoListController implements Controller
             $videoListJson[] = json_encode($arrayVideo);
             echo json_encode($arrayVideo) . "<br>";
         }
-        #var_dump($videoListJson);
+        return new Response(200, body: $videoListJson);
     }
 }

@@ -2,26 +2,39 @@
 
 namespace Yago\Aluraplay\Controller;
 
+use Nyholm\Psr7\Response;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
+use Yago\Aluraplay\Helper\FlashMessageTrait;
 use Yago\Aluraplay\Infrastructure\Repository\VideoRepository;
 
 class DeleteVideoController implements Controller
 {
+    use FlashMessageTrait;
     public function __construct(private VideoRepository $videoRepository)
     {
     }
 
-    public function processaRequisicao():void
+    public function processaRequisicao(ServerRequestInterface $request): ResponseInterface
     {
-        $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+        $queryParams = $request->getQueryParams();
+        $id = filter_var($queryParams['id'], FILTER_VALIDATE_INT);
         if ($id === false || $id === null) {
-            header('Location: /?sucesso=0');
-            exit();
+            $this->addErrorMesage('ID inválido');
+            return new Response(302, [
+                'Location' => '/'
+            ]);
         }
 
         if ($this->videoRepository->remove($id) === false) {
-            header("Location: /?sucesso=0");
+            $this->addErrorMesage('Erro ao remover video');
+            return new Response(302, [
+                'Location' => '/'
+            ]);
         } else {
-            header("Location: /?sucesso=1");
-        };
+            return new Response(302, [
+                'Location' => '/'
+            ]);
+        }
     }
 }
