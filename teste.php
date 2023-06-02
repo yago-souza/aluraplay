@@ -17,4 +17,3 @@ $videoRepository = new VideoRepository($pdo);
 #var_dump($repositorio->userForEmail("yago@teste.com")->getEmail());
 $video = $videoRepository->allVideos()[2];
 var_dump($video);
-#teste2
